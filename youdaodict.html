@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>有道单词查询</title>
+
+    <script>
+        // console.log("页面加载完成!");
+        window.addEventListener("load", function () {
+
+            var us = document.getElementById("pronunciation_us");
+            var uk = document.getElementById("pronunciation_uk");
+
+            var input = document.getElementById("input_word");
+            var link = document.getElementById("link");
+
+            // 函数功能: 播放单词的发音
+            // word: 单词 字符串 
+            // type: 发音类型 数字 0代表美式发音 1代表英式发音
+            function play(word, type) {
+                // 有道发音接口
+                var url = "https://dict.youdao.com/dictvoice?type=" + type + "&" + "audio=" + word;
+
+                var e = document.createElement("audio");
+                e.setAttribute("src", url);
+                e.onended = function () {
+                    // console.log("播放完毕");
+                    e = null;
+                }
+                e.play();
+                e = null;
+            }
+
+            function set_link(){
+                // http://dict.youdao.com/w/eng/hello
+
+                var url = "http://dict.youdao.com/w/eng/" + input.value;
+                if (input.value == '')
+                {
+                    url = '';
+                }
+                
+
+                link.innerHTML = url;
+                link.setAttribute("href", url);
+            }
+
+            // 添加监听器
+            us.addEventListener("click", function () {
+                // console.log("美式发音");
+                // 获取单词
+                var word = document.getElementById("input_word");
+                word = word.value;
+                play(word, 0);
+            });
+
+            // 添加监听器
+            uk.addEventListener("click", function () {
+                // console.log("英式发音");
+                // 获取单词
+                var word = document.getElementById("input_word");
+                word = word.value;
+                play(word, 1);
+            });
+
+            document.getElementById("input_word").addEventListener("keyup", function (event) {
+                if (event.keyCode == 13) {
+                    // 获取单词
+                    var word = this.value;
+                    play(word, 0);
+                    // console.log("回车");
+                }
+                set_link();
+            });
+            
+        });
+    </script>
+
+    <style>
+        /* 清除默认样式 */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            height: 34px;
+            font-size: 30px;
+            padding: 4px;
+            opacity: 0.5;
+            transition: opacity 0.25s;
+        }
+
+        input:focus {
+            opacity: 0.9;
+        }
+
+        img {
+            width: 32px;
+        }
+
+        ul {
+            /* 去除列表的项目符号 */
+            list-style: none;
+
+            /* 宽度: 包裹内容 */
+            width: fit-content;
+            /* 高度: 被内容撑开 */
+
+            /* 水平居中 */
+            margin: 50px auto;
+
+            /* 背景 */
+            background: linear-gradient(red, white);
+            /* background-color: aqua; */
+
+            /* 边框 */
+            border: red 2px solid;
+            border-radius: 10px;
+            box-shadow: 0 0 8px red;
+
+            /* 设置为弹性容器 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 弹性元素水平居中 */
+        }
+
+
+        ul>li {
+            margin: 12px;
+        }
+
+        .pronunciation {
+            /* background-color: aquamarine; */
+            /* 设置为弹性容器 */
+            display: flex;
+            flex-direction: row;
+        }
+
+        .pronunciation>div {
+            margin: 0 20px;
+
+            /* 设置为弹性容器 */
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+        }
+
+        .pronunciation>div>a {
+            transition: transform 256ms ease-in-out 32ms;
+            margin: 0 12px;
+        }
+
+        .pronunciation>div>a:hover {
+            transform: scale(1.125, 1.125);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <h2>单词发音(有道)</h2>
+        </li>
+        <li><span>请输入单词:</span></li>
+        <li><input id="input_word" type="text" /></li>
+        <li class="pronunciation">
+            <div>
+                <span>美式发音</span>
+                <a id="pronunciation_us" href="javascript:;"><img src="./image/trumpet.png" alt="美式发音"></a>
+            </div>
+
+            <div>
+                <span>英式发音</span>
+                <a id="pronunciation_uk" href="javascript:;"><img src="./image/trumpet.png" alt="英式发音"></a>
+            </div>
+        </li>
+
+        <li>
+            <a id="link" target="_blank" href="javascript:;"></a>
+        </li>
+    </ul>
+
+
+
+
+
+
+</body>
+
+</html>

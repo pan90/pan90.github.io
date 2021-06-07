@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+html
+{
+    background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
+}
+
+h1{
+    text-align: center;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.card_wrapper {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.card {
+    border: pink 4px solid;
+    background: linear-gradient(-45deg, white, pink);
+}
+.card:hover {
+    box-shadow: 0 0 4px pink;
+}
+.card:hover img {
+    filter: none;
+    opacity: 0.9;
+}
+
+
+.card h2 {
+    margin: 10px;
+}
+
+.card img{
+    display: block;
+    border-radius: 8px;
+    opacity: 0.75;
+    filter: blur(1px);
+    /* transition: filter 512ms ease-in-out 128ms; */
+}
+
+

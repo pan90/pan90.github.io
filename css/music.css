@@ -1,0 +1,65 @@
+html {
+    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+}
+
+h1 {
+    text-align: center;
+    margin: 10px;
+}
+
+.card_wrapper {
+    width: 1000px;
+    margin: 10px auto;
+}
+
+.card a {
+    color:  white;
+}
+
+.card h2 {
+    margin: 10px;
+}
+
+/* 设置图片 */
+.card img {
+    margin: 0 auto;
+    display: block;
+    width: 320px;
+    height: 320px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.card a{
+    display: inline-block;
+    padding: 4px;
+    font-size: 16x;
+    text-decoration: none;
+    border-radius: 4px;
+    opacity: 0.5;
+
+    transition: opacity 0.5s;
+}
+
+.card a:first-child{
+    background-color: red;
+}
+
+.card a:last-child {
+    background-color: blue;
+}
+
+.card a:first-child:hover{
+    opacity: 1;
+    color: white;
+}
+
+.card a:last-child:hover{
+    opacity: 1;
+    color: white;
+}
+
+.card>p {
+    text-indent: 2em;
+    overflow: auto;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>高考倒计时</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+            color: white;
+
+            width: 520px;
+            height: 400px;
+            /* background: linear-gradient(skyblue, white); */
+            border: 2px skyblue solid;
+            border-radius: 8px;
+            box-shadow: 0 0 8px skyblue;
+            margin: 100px auto;
+
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            /* 元素水平居中 */
+            justify-content: space-around;
+
+            position: relative;
+        }
+
+
+        main>h2 {
+            padding: 4px;
+            border-bottom: skyblue 2px solid;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            font-size: 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+
+            border-bottom: skyblue solid 2px;
+        }
+
+        main:hover .content {
+            text-shadow: 0px 0px 4px pink;
+            color: red;
+        }
+
+        .bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            filter: blur(2px);
+
+            background-image: url("./image/gaokao.jpg");
+            background-position: center;
+            background-size: cover;
+
+            transition: all 125ms;
+        }
+
+        main:hover .bg {
+            filter: blur(8px);
+        }
+
+
+        #rest_time {
+            display: flex;
+        }
+
+        #rest_time>span {
+            width: 1.25em;
+            text-align: right;
+        }
+
+        #rest_time>#ms {
+            width: 1.9em;
+        }
+
+        #rest_time>#day {
+            width: fit-content;
+        }
+
+        .status {
+            height: 20px;
+        }
+    </style>
+
+
+    <script>
+        window.setInterval(function () {
+            var now = new Date();
+            var gaokao_date;
+
+            (function show_date() {
+
+                var e = document.getElementById("date");
+
+                var year = now.getFullYear();
+                var month = now.getMonth() + 1;
+                var day = now.getDate();
+                var weak = now.getDay();
+
+                switch (weak) {
+                    case 0:
+                        weak = "日";
+                        break;
+                    case 1:
+                        weak = "一";
+                        break;
+                    case 2:
+                        weak = "二";
+                        break;
+                    case 3:
+                        weak = "三";
+                        break;
+                    case 4:
+                        weak = "四";
+                        break;
+                    case 5:
+                        weak = "五";
+                        break;
+                    case 6:
+                        weak = "六";
+                        break;
+                }
+                weak = "星期" + weak;
+
+                if (month < 10) month = "0" + month;
+                if (day < 10) day = "0" + day;
+
+                e.innerHTML = year + "年" +
+                    month + "月" +
+                    day + "日" +
+                    " " + weak;
+            })();
+
+            (function gaokao_year() {
+                var e = document.getElementById("gaokao_year");
+                // 今年高考的时间
+                var this_year = new Date(now.getFullYear(), 5, 7);
+
+
+                if (now > this_year) {
+                    // console.log("今年高考考完了");
+                    // 考完了?
+                    var this_year = new Date(now.getFullYear() + 1, 5, 7);
+                }
+
+                gaokao_date = this_year;
+
+                e.innerHTML = this_year.getFullYear();
+            })();
+
+
+            (function show_rest_time() {
+                var ms = gaokao_date.getTime() - now.getTime();
+
+                var day = ms / (24 * 60 * 60 * 1000);
+                day = Math.floor(day);
+                ms -= day * (24 * 60 * 60 * 1000);
+
+                var hour = ms / (60 * 60 * 1000);
+                hour = Math.floor(hour);
+                ms -= hour * (60 * 60 * 1000);
+
+                var minute = ms / (60 * 1000);
+                minute = Math.floor(minute);
+                ms -= minute * (60 * 1000);
+
+                var second = ms / (1000);
+                second = Math.floor(second);
+                ms -= second * 1000;
+
+                document.getElementById("day").innerText = day;
+                document.getElementById("hour").innerText = hour;
+                document.getElementById("minute").innerText = minute;
+                document.getElementById("second").innerText = second;
+                document.getElementById("ms").innerText = ms;
+
+
+
+
+                // document.getElementById("rest_time").innerText = str;
+
+            })();
+
+        }, 27);
+    </script>
+</head>
+
+<body>
+    <main>
+        <h2>高考倒计时</h2>
+
+        <div class="content">
+            <div>今天是:</div>
+            <div id="date">0000年00月00日 星期X</div>
+            <div>距离<span id="gaokao_year">0000</span>年高考仅有:</div>
+            <div id="rest_time">
+                <span id="day">000</span>天
+                <span id="hour">00</span>时
+                <span id="minute">00</span>分
+                <span id="second">00</span>秒
+                <span id="ms">000</span>毫秒
+            </div>
+
+            <div class="bg"></div>
+        </div>
+
+
+        <div class="status"></div>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+
+/* 清除浮动 */
+/* .clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+} */
+
+/* 清除默认样式 */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* width: 75%; */
+    /* height: 100%; */
+    /* padding: 2%; */
+    /* background-color: #bfa; */
+
+    /* min-width: 1200px; */
+
+    /* 设置背景图片 */
+    /* background-image: url("../image/background.jpeg"); */
+    /* background-position: center; */
+    background-repeat: repeat-y;
+    /* background-size: cover; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+     /* background: linear-gradient(skyblue, lightblue); */
+    /* background-size; */
+}
+
+
+/* 网页的主体部分, 要固定宽度和水平居中 */
+main,
+header,
+footer {
+    /* 宽度 */
+    /* width: 1200px; */
+    width: 100%;
+    /* border: 2px black solid; */
+
+    /* 半透明的背景 */
+    /* background-color: rgba(128, 128, 128, 0.25); */
+}
+
+main
+{
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+}
+
+header {
+    background: url("../image/web_head.jpeg");
+    background-size: cover;
+    background-position: center;
+
+    padding-top: 100px;
+}
+
+
+/* **************************************************** */
+
+
+/* 顶部导航栏下面的那一块 */
+header>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: center;
+    align-items: flex-end;
+    align-content: space-between;
+}
+
+
+
+/* 头像 */
+#head_photo {
+    width: 128px;
+    height: 128px;
+
+    border: 2px solid black;
+
+    opacity: 0.5;
+    transition: opacity 256ms ease-in-out 64ms;
+}
+
+#head_photo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 8px black;
+    opacity: 1;
+}
+
+div.signature_wrapper {
+    padding: 10px;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* 日期时间面板 */
+#date_time {
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+    height: fit-content;
+
+    user-select: none;
+
+    padding: 8px;
+
+    text-align: right;
+    /* position: absolute; */
+    /* top: 2px; */
+    /* right: 2px; */
+    font-size: 24px;
+
+    text-shadow: 0px 0px 1px black;
+
+    /* 先隐藏, 通过js延时显示 */
+    visibility: visible;
+
+
+}
+#date_time:hover {
+    transform: translateY(-4px) scale(1.125, 1.125);
+    box-shadow: 0 0 8px black;
+    color: white;
+    /* text-shadow: 0px 0p 8p white; */
+    background-color: rgba(127, 127, 127, 0.5);
+}
+
+div.signature_wrapper>a{
+    user-select: none;
+
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-decoration: none;
+    color: black;
+    background-color: red;
+    border-radius: 4px;
+    opacity: 0.125;
+    transition: opacity 256ms ease-in-out 64ms;
+}
+div.signature_wrapper>a:hover {
+    opacity: 0.725;
+    color: white;
+}
+
+div.welcome-wrapper {
+    height: 64px;
+    line-height: 64px;
+    font-size: 46px;
+    color: rgba(255, 0, 0, 0.5);
+    user-select: none;
+}
+
+
+.main_content {
+    background-color: aliceblue;
+}
+
+.main_content img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 4px black;
+}
+
+.main_content>ul>li{
+    /* width: 100%; */
+    padding: 10px;
+}
+
+
+/* 跑马灯 */
+div.welcome-wrapper>span#marquee {
+    /* 先隐藏起来 */
+    visibility: hidden;
+    /* 只显示一行 */
+    white-space: nowrap;
+
+    z-index: 1;
+
+    text-shadow: 2px 2px 8px pink;
+}
+
+.to_top {
+    color: black;
+
+    user-select: none;
+
+    font-size: 40px;
+    line-height: 40px;
+    opacity: 0.25;
+
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+
+    text-align: center;
+    display: block;
+    /* background-color:aquamarine; */
+    text-decoration: none;
+
+    transition: opacity 0.25s;
+}
+
+.to_top:hover {
+    opacity: 1;
+    /* box-shadow: 0 0 4px black; */
+}
+
+footer {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.footer {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.friendlink {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+}
+.friendlink>*{
+    flex-grow: 1;
+}
+.friendlink a {
+    color: black;
+    text-decoration: none;
+}
+
+.friendlink a:hover {
+    text-decoration: underline;
+    color: red;
+}

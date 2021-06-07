@@ -1,0 +1,24 @@
+
+.bgm_control {
+    display: block;
+
+    position: fixed;
+    top: 60px;
+    right: 0;
+    /* background-color: aqua; */
+
+    z-index: 1;
+
+    font-size: 36px;
+    user-select: none;
+    cursor: pointer;
+
+    transition: transform 256ms ease-in-out 8ms;
+
+    opacity: 0.5;
+}
+
+.bgm_control:hover{
+    transform: scale(1.125, 1.125);
+    opacity: 1;
+}

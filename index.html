@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- js -->
+    <script src="./js/datetime.js"></script>
+    <script src="./js/marquee.js"></script>
+    <script src="./js/signature.js"></script>
+
+    <!-- 引入导航条 -->
+    <script src="./component/navigation_bar/navigation_bar.js"></script>
+    <link rel="stylesheet" href="./component/navigation_bar/navigation_bar.css">
+
+
+    <script src="./component/bgm_control/bgm_control.js"></script>
+    <link rel="stylesheet" href="./component/bgm_control/bgm_control.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/width.css">
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <title>李立盼的个人博客</title>
+
+
+</head>
+
+<body>
+
+    <div title="背景音乐" class="bgm_control">
+        <audio src="./music/嘉琪先生、Kishan - 有何不可 (钢琴版).mp3" loop preload="auto"></audio>
+    </div>
+
+    <a title="回到顶部" class="to_top" href="#">⬆️</a>
+
+    <nav class="nav_top">
+        <ul class="width">
+            <li><a href="./index.html">首页</a></li>
+            <li class="has_submenu"><a href="javascript:;">编程</a>
+                <ul class="submenu">
+                    <li><a href="./study_website.html">学习网站推荐</a></li>
+                    <li><a href="./study_python.html">Python 资源</a></li>
+                </ul>
+            </li>
+            <li><a href="./resume.html">简历</a></li>
+            <li><a href="./picture.html">图片</a></li>
+            <li><a href="./music.html">音乐</a></li>
+            <li><a href="./movie.html">电影</a></li>
+            <li><a href="./software.html">软件</a></li>
+           
+            <li class="has_submenu"><a href="javascript:;">工具</a>
+                <ul class="submenu">
+                    <li><a target="_blank" href="./gaokao_countdown.html">高考倒计时</a></li>
+                    <li><a target="_blank" href="./youdaodict.html">单词发音</a></li>
+                    <li><a target="_blank" href="//www.emojidaquan.com/">Emoji大全</a></li>
+                    <li><a target="_blank" href="//www.user-agent.cn/">UA检测</a></li>
+                    <li><a target="_blank" href="//color.oulu.me/">CSS渐变背景</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <header>
+        <!-- <img class="img_head" src="./image/web_head.jpeg" alt="web_head"> -->
+
+        <div class="width">
+            <!-- 头像：直接用QQ头像 -->
+            <div class="head_photo_wrapper">
+                <img id="head_photo" src="http://q1.qlogo.cn/g?b=qq&nk=1398872296&s=5" alt="头像">
+            </div>
+
+
+            <!-- 个性签名 -->
+            <div class="signature_wrapper">
+                <span id="signature"></span>
+                <a id="next_signature" title="下一条">&gt;</a>
+            </div>
+
+            <!-- 日期与时间 -->
+            <div id="date_time">
+                <span id="weak">星期x</span>
+                <span id="date">x月x日</span>
+                <span id="clock_time">00:00:00</span>
+            </div>
+
+        </div>
+
+        <!-- 跑马灯 -->
+        <div class="welcome-wrapper width">
+            <span id="marquee"><span id="greeting">你好</span><span>，</span><span>欢迎光临我的博客！</span></span>
+        </div>
+
+    </header>
+
+
+
+
+    <main>
+        <div class="main_content width">
+            <ul>
+                <li><img src="./image/home/home (1).jpg" alt="home1"></li>
+                <li><img src="./image/home/home (2).jpg" alt="home1"></li>
+                <li><img src="./image/home/home (3).jpg" alt="home1"></li>
+                <li><img src="./image/home/home (4).jpg" alt="home1"></li>
+            </ul>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer width">
+            李立盼的个人博客, 版权所有, 侵权必究
+
+            <ul class="friendlink">
+                <li>友情链接</li>
+                <li><a target="_blank" href="//gitee.com/pan0">码云</a></li>
+                <li><a target="_blank" href="//www.oschina.net/">开源中国</a></li>
+                <li><a target="_blank" href="//blog.csdn.net/qq_26196217">CSDN</a></li>
+                <li><a target="_blank" href="//www.imooc.com/">慕课网</a></li>
+                <li><a target="_blank" href="//space.bilibili.com/391939252">哔哩哔哩</a></li>
+                <li><a target="_blank" href="//dict.youdao.com/">有道词典</a></li>
+                <li><a target="_blank" href="//vmgirls.com/">唯美女孩</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
