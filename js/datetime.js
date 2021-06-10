@@ -3,9 +3,7 @@
 window.addEventListener("load", function () {
     // 设置问候语
     var e = document.getElementById("greeting");
-
     var hello = "你好";
-
     var date = new Date();
     if (is_morning(date)) {
         hello = "早上好";
@@ -14,7 +12,6 @@ window.addEventListener("load", function () {
     } else if (is_evening(date)) {
         hello = "晚上好";
     }
-
     e.innerText = hello;
 
     // 延时显示时间面板
@@ -96,6 +93,6 @@ function update_date_time() {
     // 日期
     document.getElementById("date").innerText = get_date_string();
 
-    // 星期
+    // 星期     
     document.getElementById("weak").innerText = get_weak_string();
 }
